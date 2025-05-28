@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.app.DashboardController">
+
+    <!-- Top title label -->
+    <top>
+        <Label text="Password Manager Dashboard"
+               style="-fx-font-size: 18px; -fx-padding: 10;" />
+    </top>
+
+    <!-- Main layout center -->
+    <center>
+        <VBox spacing="10">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+
+            <!-- Input area -->
+            <HBox spacing="10">
+                <TextField fx:id="siteField" promptText="Site Name" />
+                <TextField fx:id="usernameField" promptText="Username" />
+                <PasswordField fx:id="passwordField" promptText="Password" />
+                <Button text="Add" onAction="#handleAdd" />
+                <Button text="Delete Selected" onAction="#handleDelete" />
+            </HBox>
+
+            <!-- Table for displaying password entries -->
+            <TableView fx:id="passwordTable" prefHeight="200">
+                <columns>
+                    <TableColumn fx:id="siteColumn" text="Site" prefWidth="150"/>
+                    <TableColumn fx:id="userColumn" text="Username" prefWidth="150"/>
+                    <TableColumn fx:id="passColumn" text="Password" prefWidth="150"/>
+                </columns>
+            </TableView>
+        </VBox>
+    </center>
+
+    <!-- Bottom user note -->
+    <bottom>
+        <Label text="*Click on username or password to copy."
+               style="-fx-font-size: 10px; -fx-text-fill: gray; -fx-padding: 5 10 5 10;" />
+    </bottom>
+
+</BorderPane>
